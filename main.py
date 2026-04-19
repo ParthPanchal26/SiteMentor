@@ -35,8 +35,8 @@ if run_btn:
                 web_page_content = docs[0].page_content
 
                 model = init_chat_model(
-                    model=os.getenv("MODEL_NAME"),
-                    model_provider=os.getenv("MODEL_PROVIDER")
+                    model="mistralai/mistral-large-3-675b-instruct-2512",
+                    model_provider="nvidia"
                 )
 
                 SYSTEM_PROMPT = """
@@ -73,4 +73,4 @@ if run_btn:
                     mime="text/markdown"
                 )
         except Exception as e:
-            st.write("Something went wrong...")
+            st.error(f"Error: {str(e)}")
